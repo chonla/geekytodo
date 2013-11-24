@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontEndApp', [
+angular.module('geekyTodoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
