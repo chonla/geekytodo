@@ -62,14 +62,16 @@ angular.module('geekyTodoApp')
         $scope.newUser.lastName = user.lastName;
 
         // Check not error
-        if ($scope.error.username != '' &&  
-              $scope.error.password != '' &&  
-              $scope.error.confirmPassword != '' &&  
-              $scope.error.email != '' &&  
-              $scope.error.mobileNumber != '') {
-
+        if ($scope.error.username === '' &&  
+              $scope.error.password === '' &&  
+              $scope.error.confirmPassword === '' &&  
+              $scope.error.email === '' &&  
+              $scope.error.mobileNumber === '') {
+          debugger;
           // call API
           signUpService.signup($scope.newUser);
+        }else{
+          debugger;
         }
 
 
