@@ -21,5 +21,14 @@ angular.module('geekyTodoApp')
             }
         };
 
+        $scope.$watch('newCat',function(){
+            debugger;
+            if($scope.newCat.trim()){
+                $scope.isAddDisabled = false;
+            } else {
+                $scope.isAddDisabled = true;
+            }
+        });
+
     });
 
