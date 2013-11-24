@@ -26,7 +26,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="75" selection-start="410" selection-end="410" vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="420">
+            <state line="10" column="71" selection-start="341" selection-end="341" vertical-scroll-proportion="0.37593985" vertical-offset="0" max-vertical-offset="532">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="catagory.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/catagory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="11" selection-start="864" selection-end="864" vertical-scroll-proportion="0.92691624" vertical-offset="60" max-vertical-offset="780">
+            <state line="18" column="31" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -309,14 +309,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state line="18" column="31" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="780">
+=======
         <state line="11" column="75" selection-start="410" selection-end="410" vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="420">
+>>>>>>> e6b211cb0b2bed3013bad5a8ca1da287556be0ae
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/catagory.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state line="10" column="71" selection-start="341" selection-end="341" vertical-scroll-proportion="0.37593985" vertical-offset="0" max-vertical-offset="532">
+=======
         <state line="29" column="11" selection-start="864" selection-end="864" vertical-scroll-proportion="0.92691624" vertical-offset="60" max-vertical-offset="780">
+>>>>>>> e6b211cb0b2bed3013bad5a8ca1da287556be0ae
           <folding />
         </state>
       </provider>
