@@ -1,1 +1,15 @@
-This is main page
+<h2>Todo</h2>
+<div ng-controller="CatagoryCtrl">
+   <div id="Category">
+        <ul>
+            <li ng-repeat="category in categoryList">
+                <span>{{category.name}}</span>
+            </li>
+        </ul>
+       <br>
+       <form ng-submit="addCategory()">
+       <input type="text" id="strCatName" ng-model="newCat">
+       <input type="submit" id="add" value="Add">
+       </form>
+   </div>
+</div>
