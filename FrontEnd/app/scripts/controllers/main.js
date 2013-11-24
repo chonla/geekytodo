@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-  .controller('MainCtrl', function ($scope) {
-    
+  .controller('RegisterCtrl', function ($scope) {
+    $scope.register = function(user){
+    	console.log('test');
+    };
   });
