@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <style type="text/css">
+        body {
+            font-family: helvetica-neue, sans-serif;
+            color: black;
+            opacity: 0.7;
+        }
+
+        input[type="text"], input[type="password"] {
+            height: 2em;
+            font-size: 1.2em;
+            padding: 0.5em;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            /*box-shadow: 0 0 5px #999999 ;*/
+        }
+
+
+
+        .login {
+            margin: 0 auto;
+            width: 30%;
+            padding: 15px;
+        }
+
+        .username {
+            margin-top: 30px;
+            margin-bottom: 15px;
+
+        }
+
+        .password {
+            margin-bottom: 15px;
+        }
+
+        .btnLogin {
+            /*margin-top: 15px;*/
+            height: 3em;
+            width: 20.3em;
+            background-color: slategrey;
+            border-color: gainsboro;
+            border-style: solid;
+            border-width: 1px;
+            cursor: pointer;
+            font-size: 1.25em;
+            color: white;
+            font-family: helvetica-neue, sans-serif;
+        }
+
+        .btnLogin:hover {
+            background-color: darkgrey;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="login">
+            <h1>Login</h1>
+            <hr />
+            <div class="username">
+                <input type="text" id="username" placeholder="Username" size="30em" required /><br>
+            </div>
+            <div class="password">
+                <input type="password" id="password" placeholder="Password" size="30em" required /><br>
+            </div>
+            <div>
+                <button type="submit" class="btnLogin">Login</button>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
