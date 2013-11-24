@@ -13,13 +13,13 @@ angular.module('geekyTodoApp', [
         controller: 'RegisterCtrl'
       })
       .when('/login', {
-            templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
-        })
-        .when('/main', {
-            templateUrl: 'views/main.html',
-            controller: 'CatagoryCtrl'
-        })
+        templateUrl: 'views/signin.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/main', {
+          templateUrl: 'views/main.html',
+          controller: 'CatagoryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
