@@ -1,10 +1,8 @@
 'use strict';
 
-angular.module('frontEndApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('geekyTodoApp')
+  .controller('RegisterCtrl', function ($scope) {
+    $scope.register = function(user){
+    	console.log('test');
+    };
   });

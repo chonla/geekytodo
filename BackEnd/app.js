@@ -26,6 +26,7 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.bodyParser());
 
 // development only
 if ('development' == app.get('env')) {
@@ -33,7 +34,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/api/users', user.list);
+app.post('/api/users/signup', user.signup);
+app.post('/api/users/signin', user.signin);
 
 // Category API List
 
