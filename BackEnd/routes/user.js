@@ -2,8 +2,10 @@
 /*
  * GET users listing.
  */
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/geekytodo');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/geekytodo');
+
+var mongoose = GLOBAL.mongoose;
 
 var crypto = require('crypto');
 var fs = require('fs');
