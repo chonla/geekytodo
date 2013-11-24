@@ -5,6 +5,9 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/geekytodo');
 
+var crypto = require('crypto');
+var fs = require('fs');
+
 var UserSchema = mongoose.Schema({
 		username 	: String,
 		password 	: String,
@@ -22,7 +25,7 @@ var TokenSchema = mongoose.Schema({
 	});
 
 var User = mongoose.model('User', UserSchema);
-// var Token = mongoose.model()
+var Token = mongoose.model('Token', TokenSchema);
 
 exports.list = function(req, res){
 	User.find(function(err, users) {
@@ -75,9 +78,25 @@ exports.signin = function(req, res) {
 	User.find({username : username}, function(err, users) {
 		if (users.length != 0) {
 			if(password == users[0].password) {
-				res.send({
-					status : "SUCCESS",
-					message : "Signin is successful"
+				var tokenValue = crypto.createHash('md5').update(username+"SALT").digest('hex');
+				var newToken = new Token({
+					username : username,
+					token : tokenValue,
+				});
+
+				newToken.save(function(err, savedToken) {
+					if (!err) {
+						res.send({
+							status : "SUCCESS",
+							message : "Signin is successful",
+							token : savedToken.token
+						});
+					} else {
+						res.send({
+							status : "FAIL",
+							message : "Signin Fail, Database Error!"
+						});
+					}
 				});
 			} else {
 				res.send({
