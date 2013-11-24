@@ -13,7 +13,7 @@ angular.module('geekyTodoApp', [
         controller: 'MainCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: 'views/signin.html',
         controller: 'LoginCtrl'
       })
       .otherwise({
