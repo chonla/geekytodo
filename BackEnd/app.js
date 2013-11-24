@@ -37,6 +37,13 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.get('/', routes.index);
 app.get('/api/users', user.list);
 app.post('/api/users/signup', user.signup);
@@ -46,7 +53,7 @@ app.post('/api/users/signin', user.signin);
 
 app.get('/api/categories/', category.list)
 app.post('/api/category/', category.create)
-app.put('/api/category', category.update)
+// app.put('/api/category', category.update)
 
 
 http.createServer(app).listen(app.get('port'), function(){
