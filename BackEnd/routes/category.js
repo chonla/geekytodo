@@ -1,5 +1,6 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/geekytodo');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/geekytodo');
+var mongoose = GLOBAL.mongoose;
 
 var Schema = mongoose.Schema;
 
@@ -9,8 +10,8 @@ var categorySchema = new Schema({
 
 var Category = mongoose.model('Category', categorySchema);
 
-categorySchema.statics.findByName = function(name, cb) {
-	this.find({ name: new RegExp(name, 'i')}, cb);
+categorySchema.statics.findByName = function(name, callback) {
+	this.find({ name: new RegExp(name, 'i')}, callback);
 };
 
 list = function(req, res) {
@@ -36,14 +37,18 @@ create = function(req, res) {
 
 update = function(req, res) {	
 	var category = new Category({ name: req.body.catName });
+	
+	Category.findByName({name: req.body.catName}, function(err, categories) {
+		var foundCategory = categories[0];
+		Category.update({name: foundCategory.name}, {name: req.body.catName}, {upsert: true}, function(err){
+			if (!err) {
+				res.json({status: 'success'});
+			} else {
+				res.json(new Error('Update to MongoDB has Failure'));
+			}
+		});
+	})
 		
-	Category.update({name: req.body.catName}, {name: req.body.catName}, {upsert: true}, function(err){
-		if (!err) {
-			res.json({status: 'success'});
-		} else {
-			res.json(new Error('Update to MongoDB has Failure'));
-		}
-	});
 };
 
 module.exports.list = list;

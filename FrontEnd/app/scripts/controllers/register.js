@@ -1,13 +1,23 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-  .controller('RegisterCtrl', function ($scope) {
+  .controller('RegisterCtrl', function ($scope, signUpService) {
   	
+
     $scope.error = {
       username : '',
       password : '',
       confirmPassword : '',
       email : '',
+      mobileNumber : ''
+    };
+
+    $scope.newUser = {
+      username : '',  
+      password : '',  
+      email : '',   
+      firstName : '', 
+      lastName : '',  
       mobileNumber : ''
     };
 
@@ -18,9 +28,9 @@ angular.module('geekyTodoApp')
       $scope.error.email = '';
       $scope.error.mobileNumber = '';
 
-    	if(user!==undefined){
+    	if(user !== undefined){
         console.log(user);
-        (validateNull(user.username)) ? "" : setErrorMessage($scope.error, "username", "username is null or empty.");
+        (validateNull(user.username)) ? ($scope.newUser.username = user.username) : setErrorMessage($scope.error, "username", "username is null or empty.");
         
         (validateNull(user.password)) ? "" : setErrorMessage($scope.error, "password", "password is null or empty.");
        
@@ -32,22 +42,39 @@ angular.module('geekyTodoApp')
           setErrorMessage($scope.error, "confirmPassword", "confirmPassword is null or empty.");
         } else if (user.password !== user.confirmPassword) {
           setErrorMessage($scope.error, "password", "password is not equal confirm password.")
+        } else {
+          $scope.newUser.password = user.password;
         }
 
         if(validateNull(user.email)){
-           (validateEmail(user.email)) ? "" : setErrorMessage($scope.error, "email", "Invalid format email.");
+           (validateEmail(user.email)) ? ($scope.newUser.email = user.email) : setErrorMessage($scope.error, "email", "Invalid format email.");
         } else {
           setErrorMessage($scope.error, "email", "Email is null or empty.")
         }
 
         if(validateNull(user.mobileNumber)) {
-          (validateMobileNumber(user.mobileNumber) ? "" : setErrorMessage($scope.error, "mobileNumber", "Invalid format mobile number."));
+          (validateMobileNumber(user.mobileNumber) ? ($scope.newUser.mobileNumber = user.mobileNumber) : setErrorMessage($scope.error, "mobileNumber", "Invalid format mobile number."));
         } else {
            setErrorMessage($scope.error, "mobileNumber", "mobile number is null or empty.")
         }
 
+        $scope.newUser.firstName = user.firstName;
+        $scope.newUser.lastName = user.lastName;
+
+        // Check not error
+        if ($scope.error.username != '' &&  
+              $scope.error.password != '' &&  
+              $scope.error.confirmPassword != '' &&  
+              $scope.error.email != '' &&  
+              $scope.error.mobileNumber != '') {
+
+          // call API
+          signUpService.signup($scope.newUser);
+        }
+
+
       }else{
-        setErrorMessage($scope.error, "username", "username is null or empty.");
+        setErrorMessage($scope.error, "user", "user error.");
     		console.log('null object');
     	}
 

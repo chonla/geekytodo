@@ -5,11 +5,15 @@
 
 var express = require('express');
 var routes = require('./routes');
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/geekytodo');
+
+GLOBAL.mongoose = mongoose;
+
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var category = require('./routes/category');
-
 var app = express();
 
 // all environments
