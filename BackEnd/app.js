@@ -46,7 +46,7 @@ app.post('/api/users/signin', user.signin);
 
 app.get('/api/categories/', category.list)
 app.post('/api/category/', category.create)
-app.put('/api/category', category.update)
+// app.put('/api/category', category.update)
 
 
 http.createServer(app).listen(app.get('port'), function(){
