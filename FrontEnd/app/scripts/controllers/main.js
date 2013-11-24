@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('frontEndApp')
+angular.module('geekyTodoApp')
   .controller('RegisterCtrl', function ($scope) {
     $scope.register = function(user){
     	console.log('test');
-    	console.log(user.email);
     };
   });
