@@ -74,7 +74,7 @@
       <file leaf-file-name="categoryService.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/services/categoryService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="676" selection-end="676" vertical-scroll-proportion="0.7504456" vertical-offset="19" max-vertical-offset="880">
+            <state line="9" column="31" selection-start="274" selection-end="283" vertical-scroll-proportion="0.32085562" vertical-offset="0" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
@@ -115,8 +115,8 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/catagory.js" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/category.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/categoryService.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/categoryService.js" />
       </list>
     </option>
   </component>
@@ -424,7 +424,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/categoryService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="676" selection-end="676" vertical-scroll-proportion="0.7504456" vertical-offset="19" max-vertical-offset="880">
+        <state line="9" column="31" selection-start="274" selection-end="283" vertical-scroll-proportion="0.32085562" vertical-offset="0" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
