@@ -8,7 +8,7 @@ angular.module('geekyTodoApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
       })
