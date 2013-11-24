@@ -15,7 +15,14 @@ var UserSchema = mongoose.Schema({
 		
 	});
 
+var TokenSchema = mongoose.Schema({
+		token 		: String,
+		username 	: String
+
+	});
+
 var User = mongoose.model('User', UserSchema);
+// var Token = mongoose.model()
 
 exports.list = function(req, res){
 	User.find(function(err, users) {
@@ -60,3 +67,30 @@ exports.signup = function(req, res) {
 		}
 	});
 }
+
+exports.signin = function(req, res) {
+	
+	var username = req.body.username
+	var password = req.body.password;
+	User.find({username : username}, function(err, users) {
+		if (users.length != 0) {
+			if(password == users[0].password) {
+				res.send({
+					status : "SUCCESS",
+					message : "Signin is successful"
+				});
+			} else {
+				res.send({
+					status : "FAIL",
+					message : "Your username or password is invalid"
+				});
+			}
+		} else {
+			res.send({
+				status : "FAIL",
+				message : "Your username or password is invalid"
+			});
+		}
+	});
+}
+
