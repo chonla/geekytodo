@@ -1,4 +1,7 @@
 /FrontEnd/node_mudules
 /FrontEnd/app/bower_components
-
+.DS_Store
+/FrontEnd/.DS_Store
+/FrontEnd/app/.DS_Store
+/FrontEnd/app/views/.DS_Store
 /BackEnd/node_modules
