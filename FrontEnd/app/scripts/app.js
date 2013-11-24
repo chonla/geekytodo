@@ -16,6 +16,10 @@ angular.module('geekyTodoApp', [
         templateUrl: 'views/signin.html',
         controller: 'LoginCtrl'
       })
+      .when('/main', {
+          templateUrl: 'views/main.html',
+          controller: 'CatagoryCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

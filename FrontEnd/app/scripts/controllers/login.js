@@ -7,7 +7,7 @@ angular.module('geekyTodoApp')
                     username:$scope.username, 
                     password:$scope.password
                     };
-       $http.post('/geekytodo/api/users/signin',data).then(function(){
+       $http.jsonp('http://127.0.0.1:3000/api/users/signin',data).then(function(){
             alert("success");
        });
     }
