@@ -9,8 +9,8 @@ angular.module('frontEndApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('frontEndApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RegisterCtrl', function ($scope) {
+    $scope.register = function(user){
+    	console.log('test');
+    	console.log(user.email);
+    };
   });
