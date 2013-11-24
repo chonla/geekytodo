@@ -1,14 +1,12 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-    .controller('CatagoryCtrl', function ($scope, categoryService) {
+    .controller('CategoryCtrl', function ($scope, categoryService) {
         $scope.register = function(user){
             console.log('test');
         };
-        $scope.addTodo = function() {
-            $scope.todos.push({text:$scope.todoText, done:false});
-            $scope.todoText = '';
-        };
+
+        debugger;
         $scope.categoryList = categoryService.list();
 
         $scope.newCat= "";
@@ -16,7 +14,7 @@ angular.module('geekyTodoApp')
         $scope.addCategory = function(){
             if($scope.newCat) {
                 //$scope.categoryList.push({id:$scope.categoryList.length+1,name:$scope.newCat});
-                categoryService.create({id:$scope.categoryList.length+1,name:$scope.newCat});
+                categoryService.create({catName:$scope.newCat});
                 $scope.categoryList =  categoryService.list();
             }
         };

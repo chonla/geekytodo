@@ -18,7 +18,7 @@ angular.module('geekyTodoApp', [
       })
       .when('/main', {
           templateUrl: 'views/main.html',
-          controller: 'CatagoryCtrl'
+          controller: 'CategoryCtrl'
       })
       .otherwise({
         redirectTo: '/'
