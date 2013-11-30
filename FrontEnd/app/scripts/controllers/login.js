@@ -7,8 +7,11 @@ angular.module('geekyTodoApp')
                     username:$scope.username, 
                     password:$scope.password
                     };
-       $http.jsonp('http://127.0.0.1:3000/api/users/signin',data).then(function(){
-            alert("success");
-       });
-    }
+       $http.post('http://127.0.0.1:3000/api/users/signin',data).success(login_complete);
+    };
+
+    var login_complete = function(data) {
+      console.log(data);
+    };
+
   });
