@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-  .controller('ItemCtrl', function ($scope,ItemServices) {
+  .controller('ItemCtrl', function ($scope, ItemServices) {
+
     $scope.items = [
       {
         id: 1,

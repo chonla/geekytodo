@@ -1,7 +1,11 @@
-<div>
+<div class="list_item">
   <ul>
     <li ng-repeat="item in items">
-      <input type="checkbox"/> {{ item.title }}
+      <input type="checkbox" name="item" value="{{item.id}}"/> {{ item.title }}
     </li>
   </ul>
+</div>
+<div class="">
+	<input type="text" >
+	<button>Add</button>
 </div>
