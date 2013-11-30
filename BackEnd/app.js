@@ -15,6 +15,7 @@ var item = require('./routes/item');
 var http = require('http');
 var path = require('path');
 var category = require('./routes/category');
+var item = require('./routes/item');
 var app = express();
 
 // all environments
