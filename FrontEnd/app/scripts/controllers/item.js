@@ -18,5 +18,17 @@ angular.module('geekyTodoApp')
     // ItemServices.getItemsList().then(function(response)){
     //   $scope.items = response.data;
     // };
+    $scope.listAll = function() {
+      ItemServices.listAll().then(list_complete, list_error);
+    };
+
+    var list_complete = function(data) {
+      console.log(data);
+      $scope.items = data;
+    };
+
+    var list_error = function(data) {
+      console.log(data);
+    }
 
   });
