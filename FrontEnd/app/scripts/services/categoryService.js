@@ -6,7 +6,7 @@ angular.module('geekyTodoApp')
     var getAllCategories = function() {
         var deferred = $q.defer();
         $http.get(
-            'http://54.254.28.194:3000/api/categories/'
+            apiPrefix+'/api/categories/'
             //'http://127.0.0.1:3000/api/categories/'
         ).success(function(data, status) {
                 deferred.resolve(data);
@@ -20,7 +20,7 @@ angular.module('geekyTodoApp')
     var createNewCategory = function(newCategory) {
         var deferred = $q.defer();
         $http.post(
-            'http://54.254.28.194:3000/api/category/',
+            apiPrefix+'/api/category/',
             //'http://localhost:3000/api/category/',
              newCategory
         ).success(function(data, status) {

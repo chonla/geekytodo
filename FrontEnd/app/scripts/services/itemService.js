@@ -2,8 +2,8 @@
 
 angular.module('geekyTodoApp')
   .factory('ItemServices', function ($http, $q) {
-    var server = 'http://54.254.28.194:3000/api/items/';
-    var server_post = 'http://54.254.28.194:3000/api/item/';
+    var server = apiPrefix+'/api/items/';
+    var server_post = apiPrefix+'/api/item/';
     //var server  = 'http://127.0.0.1:3000/api/items';
 
     var _getItemsList = function(){
