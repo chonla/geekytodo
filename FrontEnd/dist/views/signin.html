@@ -1,6 +1,7 @@
 <div class="login">
     <h1>Login</h1>
     <hr>
+    <form>
     <div class="username">
         <input type="text" id="username" placeholder="Username" size="30em" required="" ng-model="username"><br>
     </div>
@@ -8,7 +9,11 @@
         <input type="password" id="password" placeholder="Password" size="30em" required="" ng-model="password"><br>
     </div>
     <div>
-        <button type="button" class="btnLogin" ng-click="login()" ng-disabled="!username || !password">Login</button>
+        <button type="submit" class="btnLogin" ng-click="login()" ng-disabled="!username || !password">Login</button>
     </div>
+    <div id="register-link">
+        <a href="/#/register">Register</a>
+    </div>
+</form>
 
 </div>

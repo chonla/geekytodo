@@ -1,5 +1,5 @@
 'use strict';
-
+var apiPrefix = location.protocol+'//'+location.hostname+':3000';
 angular.module('geekyTodoApp', [
   'ngCookies',
   'ngResource',

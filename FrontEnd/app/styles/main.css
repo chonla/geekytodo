@@ -33,7 +33,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     margin-bottom: 15px;
 }
 
-.btnLogin .btnRegister{
+.btnLogin, .btnRegister{
     /*margin-top: 15px;*/
     height: 3em;
     width: 19.3em;
@@ -92,5 +92,10 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 #register_result_message {
     width: 90%;
+    text-align: center;
+}
+
+#register-link {
+    margin: 20px;
     text-align: center;
 }
