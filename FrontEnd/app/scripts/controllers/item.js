@@ -26,6 +26,9 @@ angular.module('geekyTodoApp')
           function() {
             console.log("Added");
             $scope.title = "";
+            ItemServices.getItemsList().then( function(response){
+              $scope.items = response.items;
+            });
           }
         , function() {
             console.log("Failed");
