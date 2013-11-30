@@ -3,6 +3,9 @@
 angular.module('geekyTodoApp')
   .controller('LoginCtrl', function ($scope, $http, LoginServices, $location) {
     $scope.buttonDisable = true;
+    $scope.username = "";
+    $scope.password = "";
+    
     $scope.login = function() {
       LoginServices.login($scope.username, $scope.password)
                   .then(_loginHandler, _loginFailureHandler);
