@@ -28,6 +28,10 @@ angular.module('geekyTodoApp', [
         templateUrl: 'views/item.html',
         controller: 'ItemCtrl'
       })
+      .when('/welcome', {
+        templateUrl: 'views/registerresult.html',
+        controller: 'RegisterResultCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
