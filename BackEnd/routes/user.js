@@ -38,18 +38,20 @@ exports.list = function(req, res){
 
 exports.signup = function(req, res) {
 	
-	//console.log(req.body);
+	console.log(req.data + "&&&&&" + req.body.data.email + "&&&&&" + req.body.data.username);
 
 	var newUser = new User({
-			username : req.body.username,
-			password : req.body.password,
-			email : req.body.email,
-			firstName : req.body.firstName,
-			lastName : req.body.lastName,
-			mobileNumber : req.body.mobileNumber
+			username : req.body.data.username,
+			password : req.body.data.password,
+			email : req.body.data.email,
+			firstName : req.body.data.firstName,
+			lastName : req.body.data.lastName,
+			mobileNumber : req.body.data.mobileNumber
 		});
 
+	console.log("XXXX" + newUser.username + " , "+ newUser.email);
 	User.find({$or : [ {username : newUser.username}, {email : newUser.email} ]}, function(err, users) {
+
 		if (users.length == 0) {
 			newUser.save(function(err, savedUser) {
 				if (!err) {

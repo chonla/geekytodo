@@ -1,0 +1,9 @@
+<div ng-controller="RegisterCtrl">
+	<p>{{ registerResult.message }}</p>
+	<div ng-switch on="registerResult.status">
+		<button>Home</button>
+		<div ng-when="FAIL">
+			<button>Back</button>
+		</div>
+	</div>
+</div>
