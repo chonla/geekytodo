@@ -54,6 +54,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 .list_item ul li {
     list-style-type:none;
     margin-bottom: 9px;
+    word-wrap: break-word;
 }
 
 .list_item ul {
@@ -79,4 +80,14 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 #new-todo-title {
     width: 90%;
+}
+
+#register_result_status {
+    width: 90%;
+    text-align: center;
+}
+
+#register_result_message {
+    width: 90%;
+    text-align: center;
 }
