@@ -17,22 +17,26 @@ angular.module('geekyTodoApp')
     // ];
 
     $scope.title = "";
-    ItemServices.getItemsList().then( function(response){
+
+    var _syncItem = function(response) {
       $scope.items = response.items;
-    });
+    };
+
+    var _listItem = function() {
+      ItemServices.getItemsList().then(_syncItem);
+    };    
 
     $scope.addItem = function() {
       ItemServices.addItem($scope.title).then(
           function() {
-            console.log("Added");
             $scope.title = "";
-            ItemServices.getItemsList().then( function(response){
-              $scope.items = response.items;
-            });
+            _listItem();
           }
         , function() {
             console.log("Failed");
           });
     };
+
+    _listItem();
 
   });
