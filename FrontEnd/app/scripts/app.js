@@ -33,6 +33,6 @@ angular.module('geekyTodoApp', [
         controller: 'RegisterResultCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   });
