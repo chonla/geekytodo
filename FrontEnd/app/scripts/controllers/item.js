@@ -8,12 +8,16 @@ angular.module('geekyTodoApp')
     ];
 
     $scope.listAll = function() {
-
-       $http.post('http://127.0.0.1:3000/api/users/signin',data).success(list_complete);
+      $ItemServices.listAll().then(list_complete, list_error);
     };
 
     var list_complete = function(data) {
       console.log(data);
+      $scope.items = data;
     };
+
+    var list_error = function(data) {
+      console.log(data);
+    }
 
   });
