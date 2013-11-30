@@ -49,8 +49,10 @@ app.all('/*', function(req, res, next) {
 // Item API List
 
 app.get('/api/items', item.list);
+app.post('/api/item', item.add);
 
 // User Action API List
+
 
 app.get('/', routes.index);
 app.get('/api/users', user.list);
