@@ -50,3 +50,33 @@ input[type="text"]:focus, input[type="password"]:focus {
 .btnLogin:hover {
     background-color: darkgrey;
 }
+
+.list_item ul li {
+    list-style-type:none;
+    margin-bottom: 9px;
+}
+
+.list_item ul {
+    padding-left: 0;
+}
+
+
+#category-block {
+    float:left;
+    width:30%;
+    height:100%;
+}
+
+#item-block {
+    float:right;
+    width:65%;
+    height:100%;
+}
+
+#main {
+    margin-top: 30px;
+}
+
+#new-todo-title {
+    width: 90%;
+}
