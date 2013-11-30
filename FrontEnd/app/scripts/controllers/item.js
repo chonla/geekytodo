@@ -15,6 +15,8 @@ angular.module('geekyTodoApp')
     //     created_at: "yyyy/mm/dd"
     //   }
     // ];
+
+    $scope.title = "";
     ItemServices.getItemsList().then( function(response){
       $scope.items = response.items;
     });
@@ -23,10 +25,14 @@ angular.module('geekyTodoApp')
       ItemServices.addItem($scope.title).then(
           function() {
             console.log("Added");
+            $scope.title = "";
+            ItemServices.getItemsList().then( function(response){
+              $scope.items = response.items;
+            });
           }
         , function() {
-          console.log("Failed");
-        });
+            console.log("Failed");
+          });
     };
 
   });
