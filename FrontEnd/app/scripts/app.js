@@ -29,6 +29,6 @@ angular.module('geekyTodoApp', [
         controller: 'ItemCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   });
