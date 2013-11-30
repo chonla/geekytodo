@@ -1,10 +1,16 @@
 'use strict';
 
 angular.module('geekyTodoApp')
+<<<<<<< HEAD
   .factory('LoginServices', function ($http, $q) {
 
     var server = apiPrefix+'/api/users/signin';
     //var server  = 'http://127.0.0.1:3000/api/users/signin';
+=======
+  .factory('LoginServices', function ($http, $q, $rootScope, $location) {
+    //var server = 'http://54.254.28.194:3000/api/users/signin';
+    var server = 'http://54.254.28.194:3000/api/users/signin';
+>>>>>>> 8e83b0b8f0e18b5b606c3d2c636d19fac7ba9f76
 
     var _login = function(username, password) {
         var data = { username:username, 
@@ -26,8 +32,23 @@ angular.module('geekyTodoApp')
         return deferred.promise;
     };
 
+    var _isLogin = function() {
+        if (typeof($rootScope.token) != 'undefined' && $rootScope.token != '') {
+            return true;
+        }
+        return false;
+    };
+
+    var _requireLogin = function() {
+        if (!_isLogin()) {
+            $location.path('/login');
+        }
+    };
+
     return {
-        login : _login
+        login : _login,
+        isLogin : _isLogin,
+        requireLogin : _requireLogin
     }
 
 });

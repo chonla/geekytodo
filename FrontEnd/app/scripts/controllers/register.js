@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-  .controller('RegisterCtrl', function ($scope, signUpService) {
+  .controller('RegisterCtrl', function ($scope, signUpService, $location, $routeParams) {
   	
 
     $scope.error = {
@@ -67,13 +67,22 @@ angular.module('geekyTodoApp')
               $scope.error.confirmPassword === '' &&  
               $scope.error.email === '' &&  
               $scope.error.mobileNumber === '') {
-          debugger;
-          // call API
-          signUpService.signup($scope.newUser);
+          
+          // call sign up API
+          var promise = signUpService.signup($scope.newUser);
+          promise.then(function(data){
+            console.log("RESULT = " + data.status + " : " + data.message);
+            $location.path('/welcome');
+            // $location.path('/welcome/?status=' + data.status + '&message=' + data.message);
+          }, function(reason) {
+            console.log("Error reason" + reason);
+            $location.path('/welcome');
+          });
+          //$routeParams ==> {status: data.status, message: data.message};
+          
         }else{
-          debugger;
+          console.log("there are some input error!!!");
         }
-
 
       }else{
         setErrorMessage($scope.error, "user", "user error.");
@@ -96,7 +105,7 @@ angular.module('geekyTodoApp')
     };
 
     var validateMobileNumber = function(str) {
-      return (!isNaN(str)) && (str.length <= 10);
+      return (!isNaN(str)) && (str.length > 0) && (str.length <= 12);
     };
 
 
