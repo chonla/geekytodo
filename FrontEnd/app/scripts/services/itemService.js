@@ -2,8 +2,9 @@
 
 angular.module('geekyTodoApp')
   .factory('ItemServices', function ($http, $q) {
-    //var server = 'http://54.254.28.194:3000/api/items/';
-    var server  = 'http://127.0.0.1:3000/api/items';
+    var server = 'http://54.254.28.194:3000/api/items/';
+    var server_post = 'http://54.254.28.194:3000/api/item/';
+    //var server  = 'http://127.0.0.1:3000/api/items';
 
     var _getItemsList = function(){
 
@@ -14,7 +15,7 @@ angular.module('geekyTodoApp')
 
       var deferred = $q.defer();
         $http
-            .get('http://127.0.0.1:3000/api/items')
+            .get(server)
             .success(function(data){
                 deferred.resolve(data);
             })
@@ -30,7 +31,7 @@ angular.module('geekyTodoApp')
         var deferred = $q.defer();
 
         $http
-            .post('http://127.0.0.1:3000/api/item', {title:title})
+            .post(server_post, {title:title})
             .success(function(data){
                 deferred.resolve(data);
             })

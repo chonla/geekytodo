@@ -17,19 +17,28 @@ angular.module('geekyTodoApp')
     // ];
 
     $scope.title = "";
-    ItemServices.getItemsList().then( function(response){
+
+    var _syncItem = function(response) {
       $scope.items = response.items;
-    });
+    };
+
+    var _listItem = function() {
+      ItemServices.getItemsList().then(_syncItem);
+    }; 
+
+    var _addItemSuccessHandler = function() {
+      $scope.title = "";
+      _listItem();
+    };
+
+    var _addItemFailureHandler = function() {
+      console.log("Failed");
+    };
 
     $scope.addItem = function() {
-      ItemServices.addItem($scope.title).then(
-          function() {
-            console.log("Added");
-            $scope.title = "";
-          }
-        , function() {
-            console.log("Failed");
-          });
+      ItemServices.addItem($scope.title).then(_addItemSuccessHandler, _addItemFailureHandler);
     };
+
+    _listItem();
 
   });

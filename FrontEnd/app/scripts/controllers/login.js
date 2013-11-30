@@ -1,14 +1,11 @@
 'use strict';
 
 angular.module('geekyTodoApp')
-  .controller('LoginCtrl', function ($scope, $http) {
+  .controller('LoginCtrl', function ($scope, $http, LoginServices, $location) {
     $scope.buttonDisable = true;
     $scope.login = function() {
-        var data = {
-                    username:$scope.username, 
-                    password:$scope.password
-                    };
-       $http.post('http://127.0.0.1:3000/api/users/signin',data).success(login_complete);
+      LoginServices.login($scope.username, $scope.password)
+                  .then(_loginHandler, _loginFailureHandler);
     }
 
     $scope.checkNull = function(){
@@ -19,7 +16,15 @@ angular.module('geekyTodoApp')
 
     }
 
-    var login_complete = function(data) {
+    var _loginHandler = function(data) {
+      if (data.status == "SUCCESS") {
+        $location.path('/items');
+      } else {
+        alert(data.message);
+      }
+    };
+
+    var _loginFailureHandler = function(data) {
       console.log(data);
     };
 

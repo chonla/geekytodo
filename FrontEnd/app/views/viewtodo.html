@@ -1,11 +1,33 @@
-<div class="list_item">
-  <ul>
-    <li ng-repeat="item in items">
-      <input type="checkbox" name="item" value="{{item.id}}"/> {{ item.title }}
-    </li>
-  </ul>
+<div id="main">
+	<div id="category-block" class="panel panel-primary">
+		<div class="panel-heading">Category</div>
+		<div class="panel-body">
+			<span><a href="">Uncategoties</a></span>
+		</div>
+	</div>
+	<div id="item-block" class="panel panel-info">
+		<div class="panel-heading">TODO Items</div>
+		<div class="panel-body">
+			<div class="list_item">
+			  <ul class="list-group">
+			    <li class="list-group-item" ng-repeat="item in items">
+			      <input type="checkbox" name="item" value="{{item.id}}"/> {{ item.title }}
+			    </li>
+			  </ul>
+			</div>
+			<div class="">
+				<form  class="form-inline">
+				<input id="new-todo-title" type="text" ng-model="title" maxlength="500" placeholder="Enter TODO here" class="form-control input-lg">
+				<button ng-click="addItem()"  ng-disabled="title==''" class="btn btn-primary">Add</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="">
-	<input type="text" ng-model="title" maxlength="500">
-	<button ng-click="addItem()"  ng-disabled="title==''">Add</button>
-</div>
+<!-- <div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+  	<div ></div>
+    Panel content
+  </div>
+</div> -->

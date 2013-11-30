@@ -1,0 +1,14 @@
+<div class="login">
+    <h1>Login</h1>
+    <hr>
+    <div class="username">
+        <input type="text" id="username" placeholder="Username" size="30em" required="" ng-model="username"><br>
+    </div>
+    <div class="password">
+        <input type="password" id="password" placeholder="Password" size="30em" required="" ng-model="password"><br>
+    </div>
+    <div>
+        <button type="submit" class="btnLogin" ng-click="login()" ng-disabled="username == '' && password == ''">Login</button>
+    </div>
+
+</div>
