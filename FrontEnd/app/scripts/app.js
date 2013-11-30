@@ -16,6 +16,10 @@ angular.module('geekyTodoApp', [
         templateUrl: 'views/signin.html',
         controller: 'LoginCtrl'
       })
+      .when('/items', {
+          templateUrl: 'views/viewtodo.html',
+          controller: 'ItemCtrl'
+      })
       .when('/main', {
           templateUrl: 'views/main.html',
           controller: 'CategoryCtrl'
