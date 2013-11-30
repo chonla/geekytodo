@@ -1,5 +1,5 @@
 <h1 style="margin-bottom:1em">Register</h1>
-<div class="content">
+<div class="content" ng-show="newRegister">
   <form method="post">
     <table style="width:900px;">
       <tr>
@@ -44,4 +44,10 @@
     </table>
     
   </form>
+</div>
+<div ng-show="registered">
+  <h3 id="register_result_title">Register Result</h3>
+
+  <div id="register_result_status"> {{ registerStatus }} </div>
+  <div id="register_result_message"> {{ registerMessage }} </div>
 </div>

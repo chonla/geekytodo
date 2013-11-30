@@ -2,7 +2,11 @@
 
 angular.module('geekyTodoApp')
   .controller('RegisterCtrl', function ($scope, signUpService, $location, $routeParams) {
-  	
+    
+    $scope.newRegister = true;
+    $scope.registered = false;
+    $scope.registerStatus = "SUCCESS";
+    $scope.registerMessage = "";
 
     $scope.error = {
       username : '',
@@ -72,11 +76,17 @@ angular.module('geekyTodoApp')
           var promise = signUpService.signup($scope.newUser);
           promise.then(function(data){
             console.log("RESULT = " + data.status + " : " + data.message);
-            $location.path('/welcome');
+            $scope.newRegister = false;
+            $scope.registered = true;
+            $scope.registerStatus = data.status;
+            $scope.registerMessage = data.message;
             // $location.path('/welcome/?status=' + data.status + '&message=' + data.message);
           }, function(reason) {
             console.log("Error reason" + reason);
-            $location.path('/welcome');
+            $scope.newRegister = false;
+            $scope.registered = true;
+            $scope.registerStatus = reason.status;
+            $scope.registerMessage = reason.message;
           });
           //$routeParams ==> {status: data.status, message: data.message};
           
