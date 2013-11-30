@@ -14,6 +14,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var category = require('./routes/category');
+var item = require('./routes/item');
 var app = express();
 
 // all environments
@@ -54,6 +55,8 @@ app.post('/api/users/signin', user.signin);
 app.get('/api/categories/', category.list)
 app.post('/api/category/', category.create)
 // app.put('/api/category', category.update)
+
+app.get('/api/items', item.list)
 
 
 http.createServer(app).listen(app.get('port'), function(){
