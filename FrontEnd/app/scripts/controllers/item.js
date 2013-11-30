@@ -24,17 +24,19 @@ angular.module('geekyTodoApp')
 
     var _listItem = function() {
       ItemServices.getItemsList().then(_syncItem);
-    };    
+    }; 
+
+    var _addItemSuccessHandler = function() {
+      $scope.title = "";
+      _listItem();
+    };
+
+    var _addItemFailureHandler = function() {
+      console.log("Failed");
+    };
 
     $scope.addItem = function() {
-      ItemServices.addItem($scope.title).then(
-          function() {
-            $scope.title = "";
-            _listItem();
-          }
-        , function() {
-            console.log("Failed");
-          });
+      ItemServices.addItem($scope.title).then(_addItemSuccessHandler, _addItemFailureHandler);
     };
 
     _listItem();
