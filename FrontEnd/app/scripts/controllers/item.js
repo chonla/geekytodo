@@ -19,17 +19,14 @@ angular.module('geekyTodoApp')
       $scope.items = response.items;
     });
 
-    $scope.listAll = function() {
-      ItemServices.listAll().then(list_complete, list_error);
+    $scope.addItem = function() {
+      ItemServices.addItem($scope.title).then(
+          function() {
+            console.log("Added");
+          }
+        , function() {
+          console.log("Failed");
+        });
     };
-
-    var list_complete = function(data) {
-      console.log(data);
-      $scope.items = data;
-    };
-
-    var list_error = function(data) {
-      console.log(data);
-    }
 
   });

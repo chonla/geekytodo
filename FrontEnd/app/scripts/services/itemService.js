@@ -26,10 +26,11 @@ angular.module('geekyTodoApp')
 
     };
 
-    var listAll = function() {
+    var _addItem = function(title, category) {
         var deferred = $q.defer();
+
         $http
-            .get('http://127.0.0.1:3000/api/items')
+            .post('http://127.0.0.1:3000/api/item', {title:title})
             .success(function(data){
                 deferred.resolve(data);
             })
@@ -41,7 +42,7 @@ angular.module('geekyTodoApp')
     };
 
     return {
-        listAll : listAll,
-        getItemsList : _getItemsList
+        getItemsList : _getItemsList,
+        addItem : _addItem
     }
   });
