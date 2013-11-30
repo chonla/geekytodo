@@ -9,12 +9,6 @@ var itemSchema = new Schema({
 
 var Item = mongoose.model('Item', itemSchema);
 
-var testRecord = new Item({ title: 'Buy Book', created_at: Date.now() });
-testRecord.save();
-var testRecord2 = new Item({ title: 'Buy Fish Sauce', created_at: Date.now() });
-testRecord2.save();
-
-
 list = function(req, res) {
 	Item.find({}, function(err, items) {
 		if (!err) {
@@ -25,4 +19,17 @@ list = function(req, res) {
 	});
 }
 
+add = function(req, res){
+	var item = new Item({ title: req.body.title ,created_at: Date.now()});
+	item.save(function(err){
+		if(!err){
+			res.json({ status: 'SUCCESS', item: item});
+		}else{
+			res.json({ status: 'FAIL', item: {}});
+		}
+	});
+	
+}
+
 module.exports.list = list;
+module.exports.add = add;
