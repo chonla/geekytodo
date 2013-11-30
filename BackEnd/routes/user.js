@@ -37,9 +37,7 @@ exports.list = function(req, res){
 };
 
 exports.signup = function(req, res) {
-	
-	console.log(req.data + "&&&&&" + req.body.data.email + "&&&&&" + req.body.data.username);
-
+	//console.log(req.data + "&&&&&" + req.body.data.email + "&&&&&" + req.body.data.username);
 	var newUser = new User({
 			username : req.body.data.username,
 			password : req.body.data.password,
@@ -49,7 +47,7 @@ exports.signup = function(req, res) {
 			mobileNumber : req.body.data.mobileNumber
 		});
 
-	console.log("XXXX" + newUser.username + " , "+ newUser.email);
+	//console.log("XXXX" + newUser.username + " , "+ newUser.email);
 	User.find({$or : [ {username : newUser.username}, {email : newUser.email} ]}, function(err, users) {
 
 		if (users.length == 0) {
