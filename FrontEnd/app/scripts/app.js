@@ -20,6 +20,10 @@ angular.module('geekyTodoApp', [
           templateUrl: 'views/main.html',
           controller: 'CategoryCtrl'
       })
+      .when('/item', {
+        templateUrl: 'views/item.html',
+        controller: 'ItemCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
