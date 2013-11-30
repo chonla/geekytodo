@@ -1,22 +1,28 @@
-var mongoose = GLOBAL.mongoose;
+var mongoose = GLOBAL.mongoose
 
-var crypto = require('crypto');
-var fs = require('fs');
+var Schema = mongoose.Schema;
 
-var ItemSchema = mongoose.Schema({
-	id 	: String,
-	title 	: String,
-	created_at : String
+var itemSchema = new Schema({
+	title: String,
+	created_at: Date
 });
 
-var Item = mongoose.model('Item', ItemSchema);
+var Item = mongoose.model('Item', itemSchema);
 
-exports.list = function(req, res){
+var testRecord = new Item({ title: 'Buy Book', created_at: Date.now() });
+testRecord.save();
+var testRecord2 = new Item({ title: 'Buy Fish Sauce', created_at: Date.now() });
+testRecord2.save();
+
+
+list = function(req, res) {
 	Item.find({}, function(err, items) {
 		if (!err) {
-			res.json(items);
+			res.json({ status: 'SUCCESS', items: items});
 		} else {
-			res.json(new Error('Cannot Fetch Items from MongoDB'));
+			res.json({ status: 'FAIL', items: []});
 		}
 	});
-};
+}
+
+module.exports.list = list;
