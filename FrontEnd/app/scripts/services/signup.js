@@ -11,7 +11,7 @@ geekyTodo.factory('signUpService', function($http, $q) {
         var deferred = $q.defer();
 
         $http
-            .post('http://127.0.0.1:3000/api/users/signup', {data:data})
+            .post(apiPrefix+'/api/users/signup', {data:data})
             .success(function(data){
                 console.log("qwerty" + data.status + " ==== " + data.message);
                 deferred.resolve(data);
