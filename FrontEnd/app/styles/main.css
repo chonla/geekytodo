@@ -99,3 +99,10 @@ input[type="text"]:focus, input[type="password"]:focus {
     margin: 20px;
     text-align: center;
 }
+
+#profile-nav {
+    text-align: right;
+    padding: 10px;
+}
+
+body { padding-top: 30px; }

@@ -11,6 +11,10 @@ angular.module('geekyTodoApp')
                   .then(_loginHandler, _loginFailureHandler);
     }
 
+    $scope.logout = function() {
+      LoginServices.logout();
+    }
+
     $scope.checkNull = function(){
         if ($scope.username && $scope.password) {
             $scope.buttonDisable = false;
